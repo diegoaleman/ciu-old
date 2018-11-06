@@ -48,6 +48,10 @@ l7.extend(['dog','bird'])
 # append adds its argument to the end of the list as a SINGLE item
 l7.append(['puma','bear'])
 
+## pop
+l7_last = l7.pop()      # O(1)
+l7_first = l7.pop(0)    # O(n)
+
 # sorted vs sort
 # O(n log n)
 l8 = [9,5,3,7,2,8,1]
