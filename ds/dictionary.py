@@ -1,6 +1,10 @@
 # create dict
 d1 = {'name': 'diego', 'last_name':'aleman', 'age':24, 'random':'blabla'}
 
+k = ['a','b','c']
+v = [1,2,3]
+list_to_dict = dict(zip(k,v))
+
 # access dict
 d_value = d1['name']
 
