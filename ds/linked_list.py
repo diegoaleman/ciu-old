@@ -100,6 +100,7 @@ class SingleLinkedList:
                 new_node = Node(data)
                 new_node.next = it
                 prev.next = new_node
+                self.size+=1
 
     def erase(self,index):
         if index+1 <= self.size:
@@ -117,6 +118,7 @@ class SingleLinkedList:
                     it = it.next
                 prev.next = it.next
                 del it
+                self.size-=1
 
     def print(self):
         it = self.head
