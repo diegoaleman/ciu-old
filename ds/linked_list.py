@@ -5,15 +5,15 @@ class Node:
 # TODO
 # x size
 # x empty
-# - value_at(index)
+# x value_at_index(index)
 # x push_front(value)
 # x pop_front()
 # x push_back(value)
 # x pop_back()
-# - front()
-# - back()
-# - insert(index, value)
-# - erase(index)
+# x front()
+# x back()
+# x insert(index, value)
+# x erase(index)
 # - value_n_from_end(n)
 # - reverse()
 # - remove_value(value)
@@ -50,6 +50,7 @@ class SingleLinkedList:
             return it.data
         else:
             return None
+
     def push_back(self,data):
         if self.size == 0:
             self.push_front(data)
@@ -75,6 +76,48 @@ class SingleLinkedList:
                 del it
                 self.size-=1
 
+    def value_at_index(self,index):
+        if index+1 <= self.size:
+            it = self.head
+            counter = 0
+            while counter is not index:
+                counter+=1
+                it = it.next
+            return it.data
+
+    def insert(self,index,data):
+        if index+1 <= self.size:
+            if index == 0:
+                self.push_front(data)
+            else:
+                prev = None
+                it = self.head
+                counter = 0
+                while counter is not index:
+                    counter+=1
+                    prev = it
+                    it = it.next
+                new_node = Node(data)
+                new_node.next = it
+                prev.next = new_node
+
+    def erase(self,index):
+        if index+1 <= self.size:
+            if index == 0:
+                self.pop_front()
+            elif index == self.size-1:
+                self.pop_back()
+            else:
+                prev = None
+                it = self.head
+                counter = 0
+                while counter is not index:
+                    counter+=1
+                    prev = it
+                    it = it.next
+                prev.next = it.next
+                del it
+
     def print(self):
         it = self.head
         while it is not None:
@@ -82,9 +125,14 @@ class SingleLinkedList:
             it = it.next
         print()
 
+
 sll = SingleLinkedList()
+sll.push_front(4)
 sll.push_front(3)
-sll.push_front(2)
 sll.push_front(1)
-sll.push_back(4)
+sll.push_back(5)
+sll.print()
+sll.insert(1,2)
+sll.print()
+sll.erase(1)
 sll.print()
