@@ -1,3 +1,5 @@
+import collections
+
 class Node:
     def __init__(self,data):
         self.data = data
@@ -75,4 +77,16 @@ class BST:
             self.postorder(node.left)
             self.postorder(node.right)
             print(node.data, end=' ')
+
+    def breadth_first_print(self):
+        queue = collections.deque()
+        queue.append(self.head)
+        while len(queue) > 0:
+            node = queue.popleft()
+            if node.left is not None:
+                queue.append(node.left)
+            if node.right is not None:
+                queue.append(node.right)
+            print(node.data, end=' ')
+        print()
 
