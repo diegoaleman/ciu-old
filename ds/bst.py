@@ -55,30 +55,24 @@ class BST:
             self.postorder(self.head)
         print()
 
+    # used to create copy of a tree
     def preorder(self,node):
         if node is not None:
             print(node.data, end=' ')
             self.preorder(node.left)
             self.preorder(node.right)
 
+    # list elements from min to max
     def inorder(self,node):
         if node is not None:
             self.inorder(node.left)
             print(node.data, end=' ')
             self.inorder(node.right)
 
+    # used to delete tree
     def postorder(self,node):
         if node is not None:
             self.postorder(node.left)
             self.postorder(node.right)
             print(node.data, end=' ')
 
-
-bst = BST()
-bst.insert(8)
-bst.insert(4)
-bst.insert(10)
-bst.insert(6)
-bst.print(1)
-bst.print(2)
-bst.print(3)
