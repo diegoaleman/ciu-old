@@ -130,6 +130,22 @@ class BST:
                 else:
                     prev_node.left = None
             del node
+        elif num_of_childs == 1:
+            child = None
+            if node.left is not None:
+                child = node.left
+            else:
+                child = node.right
+
+            if child.data > prev_node.data:
+                prev_node.right = child
+            else:
+                prev_node.left = child
+
+            del node
+
+
+
 
 
 
