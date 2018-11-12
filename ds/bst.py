@@ -90,3 +90,66 @@ class BST:
             print(node.data, end=' ')
         print()
 
+    def find_deleted_node(self,data):
+        prev = None
+        it = self.head
+
+        # iterate until node is found or None is found
+        while it.data is not data and it is not None:
+            prev = it
+            if data > it.data:
+                it = it.right
+            else:
+                it = it.left
+
+        return [prev, it]
+
+    def number_of_childs(self,node):
+        left = node.left
+        right = node.right
+
+        if left and right:
+            return 2
+        elif (left and not right) or (right and not left):
+            return 1
+        else:
+            return 0
+
+    def delete_value(self,data):
+        find_node = self.find_deleted_node(data)
+        prev_node = find_node[0]
+        node = find_node[1]
+        num_of_childs = self.number_of_childs(node)
+
+        if num_of_childs == 0:
+            if prev_node is None:
+                self.head = None
+            else:
+                if node.data > prev_node.data:
+                    prev_node.right = None
+                else:
+                    prev_node.left = None
+            del node
+
+
+
+
+
+bst = BST()
+bst.insert(10)
+bst.insert(5)
+bst.insert(15)
+bst.insert(3)
+bst.insert(7)
+bst.insert(12)
+bst.insert(20)
+bst.insert(1)
+bst.insert(6)
+
+bst.breadth_first_print()
+
+bst.delete_value(7)
+
+bst.breadth_first_print()
+
+
