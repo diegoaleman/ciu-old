@@ -104,8 +104,6 @@ class BST:
 
         return [prev, it]
 
-    
-
     def number_of_childs(self,node):
         left = node.left
         right = node.right
@@ -116,6 +114,7 @@ class BST:
             return 1
         else:
             return 0
+
     def inorder_successor(self,node):
         parent = node
         child = node.right
@@ -130,7 +129,6 @@ class BST:
             parent.left = None
 
         return child
-
 
     def delete_value(self,data):
         find_node = self.find_deleted_node(data)
