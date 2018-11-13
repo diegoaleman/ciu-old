@@ -104,6 +104,8 @@ class BST:
 
         return [prev, it]
 
+    
+
     def number_of_childs(self,node):
         left = node.left
         right = node.right
@@ -114,22 +116,37 @@ class BST:
             return 1
         else:
             return 0
+    def inorder_successor(self,node):
+        parent = node
+        child = node.right
+
+        while child.left is not None:
+            parent = child
+            child = child.left
+
+        if child.data > parent.data:
+            parent.right = None
+        else:
+            parent.left = None
+
+        return child
+
 
     def delete_value(self,data):
         find_node = self.find_deleted_node(data)
-        prev_node = find_node[0]
+        parent_node = find_node[0]
         node = find_node[1]
         num_of_childs = self.number_of_childs(node)
 
         if num_of_childs == 0:
-            if prev_node is None:
+            if parent_node is None:
                 self.head = None
             else:
-                if node.data > prev_node.data:
-                    prev_node.right = None
+                if node.data > parent_node.data:
+                    parent_node.right = None
                 else:
-                    prev_node.left = None
-            del node
+                    parent_node.left = None
+
         elif num_of_childs == 1:
             child = None
             if node.left is not None:
@@ -137,35 +154,26 @@ class BST:
             else:
                 child = node.right
 
-            if child.data > prev_node.data:
-                prev_node.right = child
+            if parent_node is None:
+                self.head = child
             else:
-                prev_node.left = child
+                if child.data > parent_node.data:
+                    parent_node.right = child
+                else:
+                    parent_node.left = child
 
-            del node
+        else:
+            successor = self.inorder_successor(node)
+            successor.left = node.left
+            successor.right = node.right
 
+            if parent_node is None:
+                self.head = successor
+            else:
+                if successor.data > parent_node.data:
+                    parent_node.right = successor
+                else:
+                    parent_node.left = successor
 
-
-
-
-
-
-
-bst = BST()
-bst.insert(10)
-bst.insert(5)
-bst.insert(15)
-bst.insert(3)
-bst.insert(7)
-bst.insert(12)
-bst.insert(20)
-bst.insert(1)
-bst.insert(6)
-
-bst.breadth_first_print()
-
-bst.delete_value(7)
-
-bst.breadth_first_print()
-
+        del node
 
