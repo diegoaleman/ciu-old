@@ -12,7 +12,7 @@ h = [21,2,45,78,3,5]
 heapq.heapify(h)
 
 
-# insert
+# insert and reorder heap if necessary
 heapq.heappush(h,1)
 
 # remove
