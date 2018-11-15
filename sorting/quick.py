@@ -26,9 +26,3 @@ def partition(list,start,end):
             done = True
     list[start],list[right] = list[right],list[start]
     return right
-
-
-l = [7,2,6,9,3,5,1,8]
-print(l)
-quicksort(l,0,len(l)-1)
-print(l)
