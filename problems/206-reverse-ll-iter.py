@@ -9,19 +9,15 @@ class Solution:
         :type head: ListNode
         :rtype: ListNode
         """
-        if head is None or head.next is None:
+        if head is None:
             return head
 
         prev = None
         it = head
-        next = it.next
-        while next:
+        while it:
+            temp = it.next
             it.next = prev
             prev = it
-            it = next
-            next = next.next
-        if it:
-            it.next = prev
-
-        return it
+            it = temp
+        return prev
 
