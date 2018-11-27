@@ -1,7 +1,4 @@
 # Dijkstra algorithm
-# shortest path in a weighted graph
-
-# Assumptions: no negative weight edges
 
 def find_min(dct, s):
     min_index = None
