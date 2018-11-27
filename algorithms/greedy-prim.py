@@ -2,15 +2,11 @@
 
 import heapq
 
-def getNode():
-    pass
-
 def addNodes(matrix, length, row, visited, h):
     for i in range(length):
         val = matrix[row][i]
         if val > 0 and i not in visited:
             heapq.heappush(h,(val,[row,i]))
-
 
 def prim(matrix, length):
     result = []
