@@ -22,6 +22,4 @@ class Solution:
 
         return max_value
 
-sol = Solution()
-print(sol.maxSubArray([1]))
 
