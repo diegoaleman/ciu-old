@@ -54,5 +54,11 @@ list_a = [1,2,3,4,5]
 list_b = ['a','b','c','d','e']
 
 zipped = zip(list_a, list_b)
-print(list(zipped))
+zipped_l = list(zipped)
+print(zipped_l)
+
+# unzip list
+unzip_a, unzip_b = zip(*zipped_l)
+print(unzip_a)
+print(unzip_b)
 
