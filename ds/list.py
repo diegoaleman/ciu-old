@@ -59,3 +59,15 @@ l8 = [9,5,3,7,2,8,1]
 sorted_l = sorted(l8)
 # sort modifies the same list
 l8.sort()
+
+
+
+# SORT a list of tuples
+import operator
+
+a = [0, 5, 3, 8, 5, 1]
+b = [6, 7, 4, 9, 9, 2]
+c = list(zip(a,b))
+c.sort(key = operator.itemgetter(1))
+# sort in descending order
+c.sort(key = operator.itemgetter(1), reverse = True)
