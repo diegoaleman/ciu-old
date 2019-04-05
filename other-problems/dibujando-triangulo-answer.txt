@@ -1,0 +1,19 @@
+Input: 0
+Output:
+
+Input: 1
+Output: @
+
+Input: 3
+Output:
+ @
+@@@
+
+Input: 11
+Output:
+     @
+    @@@
+   @@@@@
+  @@@@@@@
+ @@@@@@@@@
+@@@@@@@@@@@
